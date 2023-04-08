@@ -8,6 +8,8 @@ import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 
 @Configuration
+
+@org.springframework.cloud.context.config.annotation.RefreshScope
 public class RetryConfig {
 
     private RetryConfigData retryConfigData;
@@ -17,6 +19,8 @@ public class RetryConfig {
     }
 
     @Bean
+
+    @org.springframework.cloud.context.config.annotation.RefreshScope
     public RetryTemplate retryTemplate() {
         RetryTemplate retryTemplate = new RetryTemplate();
 

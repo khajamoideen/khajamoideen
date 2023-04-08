@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 and().csrf().disable().authorizeRequests().anyRequest()
                 .fullyAuthenticated()
                 .and().
-        oauth2ResourceServer()
+                oauth2ResourceServer()
                 .jwt().jwtAuthenticationConverter(twitterQueryUserJwtConverter());
     }
 
@@ -69,7 +69,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers(pathsToIgnore);
     }
-
 
 
     @Bean

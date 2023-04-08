@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@org.springframework.cloud.context.config.annotation.RefreshScope
 public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;
@@ -27,6 +28,7 @@ public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecor
     }
 
     @Bean
+    @org.springframework.cloud.context.config.annotation.RefreshScope
     public Map<String, Object> producerConfig() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaConfigData.getBootstrapServers());
@@ -44,11 +46,13 @@ public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecor
     }
 
     @Bean
+    @org.springframework.cloud.context.config.annotation.RefreshScope
     public ProducerFactory<K, V> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfig());
     }
 
     @Bean
+    @org.springframework.cloud.context.config.annotation.RefreshScope
     public KafkaTemplate<K, V> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }

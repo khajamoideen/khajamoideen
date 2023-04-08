@@ -3,15 +3,17 @@ spring:
     name: configserver
   cloud:
     config:
-      server:
+       server:
         git:
-          uri: https://github.com/agelenler/spring-cloud-config-server-repository
+          uri: https://github.com/khajamoideen/-spring-cloud-config-server-repository-kafka
           default-label: main
-          username: agelenler
-          password: ****
+          username: khajamoideen
+          password: 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
           clone-on-start: true
     fail-fast: true
   security:
     user:
       name: spring_cloud_user
-      password: '{cipher}c0d85293cb01a46b3b629a12e5620f4e9d00d4ede8bdf248cf5b83e23f4536501e4b34a8d56b7a34fcee17aa01d05330'
+      password: '{cipher}c407136a432650eb10bd637cb3045ea40a17ba77ff0934083e6578c0af143295bf7c6a0679e5b59aca15556458e20a23'
+encrypt:
+  key: 'Demo_Pwd!2020'
